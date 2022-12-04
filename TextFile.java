@@ -12,6 +12,8 @@ import java.io.*;
 public class TextFile
 {
     Scanner wordFile;
+    String nextLine = "";
+    
     /**
      * The constructor simply opens the file for input.
      */
@@ -32,16 +34,50 @@ public class TextFile
 
     }
     
+    /**  Reads and returns the next word from the TextFile.
+     *   Cleans the word by removing punctuation (anything not a letter) from beginning and end.
+     *   @return  the next word from the text file, or null if there are no more words in the file.
+     */
     public String getNextWord()
     {
         if (wordFile.hasNext())
         {
-            return wordFile.next();
+            return clean(wordFile.next());
         }
         else
         {
             return null;
         }
+    }
+    
+    /** "Cleans" the string by removing any non-alphabetic characters from the front and back of the word
+     *   @param   The String to clean
+     *   @return  The cleaned String
+     */
+    public String clean (String str)
+    {
+        // Find first alphabetic character
+        int start = 0;
+        while (str.length() > start && !Character.isAlphabetic(str.charAt(start)))
+        {
+            start++;
+        }
+        
+        // Find last alphabetic character
+        int end = str.length() - 1;
+        while (end >= 0 && !Character.isAlphabetic(str.charAt(end)))
+        {
+            end--;
+        }
+        
+        // If something is not right, returns an empty string.
+        if (start > end)
+        {
+            return "";
+        }
+        
+        // return the lowercase version of the substring
+        return str.substring(start, end + 1).toLowerCase();
     }
     
     /** Closes the file  */

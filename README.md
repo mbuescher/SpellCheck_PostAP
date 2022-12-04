@@ -5,4 +5,4 @@ The file MyHashTable.java is a class for creating a hash table for the spell che
 
 The file TextFile.java is a simple class for reading a text file word by word.
 
-The file MakeHashTester.java is the main control program.
+The file SpellChecker.java is the main control program.

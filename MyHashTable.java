@@ -97,7 +97,7 @@ public class MyHashTable
         System.out.println(empty + " empty cells (" + (empty * 100.0/TABLE_SIZE) + "%).");
         System.out.println(sizeOne + " cells with one word (" + (sizeOne * 100.0/TABLE_SIZE) + "%).");
         System.out.println(larger + " larger lists (" + (larger * 100.0/TABLE_SIZE) + "%).");
-        System.out.println("Average length of non-empty lists: " + (totalEntries / (TABLE_SIZE - empty)));
+        System.out.println("Average length of non-empty lists: " + ((double) totalEntries / (TABLE_SIZE - empty)));
 
         System.out.println("The longest linked list is in cell " + longLoc + "\n    " + table[longLoc]);
 
